@@ -1,0 +1,121 @@
+{% load static %}
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Manager | Add Contacts</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+<body>
+  <nav class="main-nav">
+    <div class="new-contact-link">
+      <a href="/add_contacts">Add New Contacts <span class="lnr lnr-users"></span></a>
+    </div>
+    <div class="contact-search-link">
+      <a href="/">Search Your Contacts <span class="lnr lnr-magnifier"></span></a>
+    </div>
+  </nav>
+    <h1>Add New Contacts</h1>
+
+    <form method="POST" class="add-contact-form">
+        <h4>Enter New Contact Info</h4>
+        {% csrf_token %}
+        {{ new_contact.as_p }}
+        <button type="submit" class="save btn btn-default">Add New Contact <span class="lnr lnr-rocket"></span></button>
+    </form>
+    <div class="contact-demo hidden">
+          <h3>This is how your contact will look in your contact manager:</h3>
+          <div class="contact-header red">
+            <div class="avatar">
+              <div class="initials">
+              </div>
+            </div>
+            <div id="expander-icon">
+              <span class="lnr our-expander"></span>
+            </div>
+          </div>
+          <div class="demo-info">
+              <div class="row">
+                <div class="fn">
+                  <label>First Name</label>
+                  <input id="fn-input" readonly>
+                </div>
+                <div class="ln">
+                  <label>Last Name</label>
+                  <input id="ln-input" readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="pn">
+                  <label>Phone Number</label>
+                  <input id="pn-input" readonly>
+                </div>
+                <div class="ea">
+                  <label>Email Address</label>
+                  <input id="ea-input" readonly>
+                </div>
+              </div>
+          </div>
+    </div>
+    {% if messages %}
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} <a href="/">Click here to view all your contacts</a></span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endif %}
+
+
+<div class="fixed-stuff">
+<div class='landscape'>
+  <div class='sun hidden-landscape'>
+  <div class="ray_box">
+    <div class="ray ray1"></div>
+    <div class="ray ray2"></div>
+    <div class="ray ray3"></div>
+    <div class="ray ray4"></div>
+    <div class="ray ray5"></div>
+    <div class="ray ray6"></div>
+    <div class="ray ray7"></div>
+    <div class="ray ray8"></div>
+    <div class="ray ray9"></div>
+    <div class="ray ray10"></div>
+  </div>
+  </div>
+  <div class="cloud hidden-landscape cloud-1"></div>
+  <div class="cloud hidden-landscape cloud-2"></div>
+  <div class="cloud hidden-landscape cloud-3"></div>
+  <div class="cloud hidden-landscape cloud-4"></div>
+  <div class="cloud hidden-landscape cloud-5"></div>
+  <div class="cloud hidden-landscape cloud-6"></div>
+  <div class='layer l0'>
+  <div class='hills'>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+    <div class="hill hidden-landscape"><div class="snow"></div></div>
+  <div class="hill hidden-landscape"><div class="snow"></div></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  <div class="hill hidden-landscape"></div>
+  </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/contact_creation.js' %}"></script>
+</body>
+</html>
